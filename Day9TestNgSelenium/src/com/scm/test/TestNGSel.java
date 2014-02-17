@@ -38,7 +38,7 @@ public class TestNGSel {
 		// TODO Auto-generated method stub
 	  
 	  final String LOGIN_EMAIL = "aneeshadp@yahoo.com";
-		final String PASSWORD ="XXXXXXXXX";
+		final String PASSWORD ="XXXXX";
 		
 		 
 		 //ChromeDriver driver = new ChromeDriver();
@@ -58,15 +58,20 @@ public class TestNGSel {
 		if(driver.findElement(By.tagName("body")).getText().contains("Sign in to quickly retrieve your flight information and manage your flights")){
 		 
 			driver.findElement(By.xpath(".//*[@id='signInForm']/input[1]")).sendKeys(LOGIN_EMAIL);
-			driver.findElement(By.xpath(".//*[@id='signInForm']/input[2]")).sendKeys(PASSWORD);
-		 
+			driver.findElement(By.xpath(".//*[@id='signInForm']/input[2]")).clear();
+			driver.findElement(By.xpath(".//*[@id='signInForm']/input[2]")).sendKeys("aathira_123");
+			//driver.findElement(By.name("password")).clear();
+		    //driver.findElement(By.name("password")).sendKeys("aathira_123");
 			driver.findElement(By.xpath(".//*[@id='signInForm']/div[1]/div/a")).click();
-		}
+		}	
+		driver.findElement(By.tagName("body")).getText().contains("We can't find any upcoming flights in your TrueBlue account");
 		
-		 if (driver.findElement(By.tagName("body")).getText().contains("We can't find any upcoming flights in your TrueBlue account")){
-			  //driver.findElement(By.xpath("html/body/div[1]/section/div/h4/a")).click();
-			  driver.findElement(By.linkText("Book new travel")).click();
-		  }
+		
+		/**
+			
+			  driver.findElement(By.xpath("html/body/div[1]/section/div/h4/a")).click();
+			  //driver.findElement(By.linkText("B6")).click();
+			
 		 
 		 //Book a flight
 		 
@@ -94,11 +99,11 @@ public class TestNGSel {
 			 if (element.getAttribute("value").equalsIgnoreCase("MC") && element.isSelected()){
 				 System.out.println("here in MC");
 			 }
-		 }
+		 }**/
 	}
 	
   
-  @Test
+  @Test(enabled = false)
   public void testFlightStatustab(){
 	  
 	  // Select the manage flights tab to go to that Flightsstatustab
@@ -126,7 +131,7 @@ public class TestNGSel {
 	 selectBox.selectByIndex(1); 
 	 driver.findElement(By.xpath(".//*[@id='check-status-btn']")).click();
   }
-  @Test
+  @Test(enabled = false)
   
   public void testCheckInOnlinetab(){
 	  WebElement manageflightselement = driver.findElement(By.xpath(".//*[@id='jb-primary-links']/li[2]/a"));
